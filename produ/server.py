@@ -40,7 +40,6 @@ def processLogin():
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
            '<head>' \
-           '<link href="static/css/socialed-style.css" rel="stylesheet" type="text/css"/>' \
            '<title> Acceso - SocialED </title>' \
            '</head>' \
            '<body> <div id ="container">' \
@@ -66,7 +65,6 @@ def processSignup():
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
            '<head>' \
-           '<link href="static/css/socialed-style.css" rel="stylesheet" type="text/css"/>' \
            '<title> Registro - SocialED </title>' \
            '</head>' \
            '<body> <div id ="container">' \
@@ -94,7 +92,6 @@ def processHome():
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
            '<head>' \
-           '<link href="static/css/socialed-style.css" rel="stylesheet" type="text/css"/>' \
            '<title> Inicio - SocialED </title>' \
            '</head>' \
            '<body> <div id="container">' \
