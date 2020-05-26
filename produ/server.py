@@ -1,7 +1,7 @@
 # -*- coding: iso-8859-15 -*-
 
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -25,6 +25,13 @@ def login():
 def signup():
     return app.send_static_file('signup.html')
 
+def process_missingFields(campos, next_page):
+    """
+    :param campos: Lista de Campos que faltan
+    :param next_page: ruta al pulsar botón continuar
+    :return: plantilla generada
+    """
+    return render_template("missingFields.html", inputs=campos, next=next_page)
 
 @app.route('/processLogin', methods=['GET', 'POST'])
 def processLogin():
@@ -35,7 +42,7 @@ def processLogin():
         if value is None:
             missing.append(field)
     if missing:
-        return "Warning: Some fields are missing"
+        return process_missingFields(missing, "/login")
 
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
@@ -61,7 +68,7 @@ def processSignup():
         if value is None:
             missing.append(field)
     if missing:
-        return "Warning: Some fields are missing"
+        return process_missingFields(missing, "/login")
 
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
@@ -89,7 +96,7 @@ def processHome():
         if value is None:
             missing.append(field)
     if missing:
-        return "Warning: Some fields are missing"
+        return process_missingFields(missing, "/login")
 
     return '<!DOCTYPE html> ' \
            '<html lang="es">' \
